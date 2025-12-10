@@ -38,6 +38,12 @@ body {
     font-size: 14px;
 }
 
+#header-logo {
+    width: 80%;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
 .login-tabs {
     display: flex;
     gap: 10px;

@@ -18,6 +18,6 @@ document.getElementById('studentForm').addEventListener('submit', async function
     if (error) {
         alert("Login failed: " + error.message);
     } else {
-        window.location.href = '/dashboard.html';
+        window.location.href = '/dashboard/';
     }
 });

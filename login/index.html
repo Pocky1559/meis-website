@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,55 +16,42 @@
             <a href="/">
                 <img id="header-logo" src="/images/logo-horizontal.svg" alt="me-is-logo">
             </a>
-            <p>Please provide your information to use the service</p>
+            <p>โปรดใส่ข้อมูลเพื่อใช้บริการ MeIS</p>
         </div>
 
         <form id="studentForm">
             <div class="form-group">
-                <label for="studentId">Student ID</label>
-                <input type="text" id="studentId" name="studentId" placeholder="Enter your student ID" required>
+                <label for="studentIdOrEmail">รหัสประจำตัวนักเรียนหรืออีเมล</label>
+                <input type="text" id="studentIdOrEmail" name="studentIdOrEmail" placeholder="ใส่รหัสประจำตัวนักเรียนหรืออีเมลของคุณ" required>
             </div>
 
             <div class="form-group">
-                <label for="studentPassword">Password</label>
-                <input type="password" id="studentPassword" name="studentPassword" placeholder="Enter your password" required>
+                <label for="studentPassword">รหัสผ่าน</label>
+                <input type="password" id="studentPassword" name="studentPassword" placeholder="ใส่รหัสผ่านของคุณ" required>
             </div>
 
             <div class="remember-forgot">
                 <label>
-                    <input type="checkbox" name="remember"> Remember me
+                    <input type="checkbox" name="remember"> จดจำฉัน
                 </label>
-                <a href="#forgot-password" class="link">Forgot Password?</a>
+                <a href="#forgot-password" class="link">ลืมรหัสผ่าน?</a>
             </div>
 
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn">เข้าสู่ระบบ</button>
 
-            <!-- Small teacher link below the main login button -->
-            <p class="teacher-link-underline"><a href="./teacher.html" class="link teacher-link">Teacher login</a></p>
+            <!-- Not in use right now -->
+            <!-- <p class="teacher-link-underline"><a href="./teacher.html" class="link teacher-link">Teacher login</a></p> -->
 
         </form>
 
         <div class="signup-link">
-            Don't have an account? <a href="/login/signup.html" class="link">Sign up here</a>
+            ยังไม่ได้สร้างบัญชี MeIS? <a href="/login/signup.html" class="link">กดเพื่อสมัคร</a>
         </div>
 
-        <!-- Small informational note -->
-        <p class="note">If you're a staff member, use the Teacher login link above.</p>
+        <!-- Not in use right now -->
+        <!-- <p class="note">If you're a staff member, use the Teacher login link above.</p> -->
     </div>
 
-    <script>
-        // Student form submission only (teacher uses separate page)
-        document.getElementById('studentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const studentId = document.getElementById('studentId').value;
-            const password = document.getElementById('studentPassword').value;
-            
-            if (studentId && password) {
-                alert('Student login successful! Welcome, ' + studentId);
-                // Here you would normally send the credentials to a server
-            }
-        });
-    </script>
+    <script src="/scripts/login/login.js"></script>
 </body>
 </html>

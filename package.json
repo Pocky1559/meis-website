@@ -1,0 +1,22 @@
+{
+  "name": "meis",
+  "version": "1.0.0",
+  "description": "MEIS Website",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pocky1559/meis-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pocky1559/meis-website/issues"
+  },
+  "homepage": "https://github.com/Pocky1559/meis-website#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.87.1"
+  }
+}

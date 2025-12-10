@@ -6,6 +6,7 @@ document.getElementById('studentForm').addEventListener('submit', async function
     
     const studentEmail = document.getElementById('studentEmail').value;
     const password = document.getElementById('studentPassword').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
 
     console.log('Attempting login for:', studentEmail);
 
@@ -14,5 +15,9 @@ document.getElementById('studentForm').addEventListener('submit', async function
         password: password
     });
 
-    console.log(data, error);
+    if (error) {
+        alert("Login failed: " + error.message);
+    } else {
+        window.location.href = '/dashboard.html';
+    }
 });

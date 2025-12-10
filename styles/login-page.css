@@ -184,30 +184,6 @@ body {
     color: #764ba2;
 }
 
-.site-warning {
-    position: fixed;
-    left: 50%;
-    bottom: 16px;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 980px;
-    text-align: center;
-    color: #6b0f0f;
-    background: rgba(255, 240, 240, 0.98);
-    border: 1px solid #f1c0c0;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    line-height: 1.4;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    z-index: 9999;
-}
-
-.site-warning .close-warning:focus {
-    outline: 2px solid rgba(102,126,234,0.25);
-    border-radius: 4px;
-}
-
 @media (max-width: 480px) {
     .container {
         padding: 30px 20px;

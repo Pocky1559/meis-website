@@ -4,9 +4,12 @@ import { supabase } from "../supabase-cilent.js";
 document.getElementById('studentForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
+    const signInBtn = document.getElementById('login-btn');
+    signInBtn.textContent = "กำลังเข้าสู่ระบบ..."
+    
     const studentEmail = document.getElementById('studentEmail').value;
     const password = document.getElementById('studentPassword').value;
-    const rememberMe = document.getElementById('rememberMe').checked;
+    // const rememberMe = document.getElementById('rememberMe').checked;
 
     console.log('Attempting login for:', studentEmail);
 

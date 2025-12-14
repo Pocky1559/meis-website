@@ -20,6 +20,7 @@
         </div>
 
         <form id="studentForm">
+            <div id="formError" class="error-message" role="alert" aria-live="polite" aria-atomic="true"></div>
             <div class="form-group">
                 <label for="studentEmail">อีเมล</label>
                 <input type="email" id="studentEmail" name="studentEmail" placeholder="ใส่อีเมลของคุณ" required>
@@ -28,11 +29,19 @@
             <div class="form-group">
                 <label for="studentPassword">รหัสผ่าน</label>
                 <input type="password" id="studentPassword" name="studentPassword" placeholder="สร้างรหัสผ่านของคุณ" required>
+                <div class="toggle-password-container">
+                    <input type="checkbox" id="toggle_studentPassword" class="toggle-password-checkbox" data-target="studentPassword" aria-label="แสดงรหัสผ่าน" />
+                    <button type="button" class="toggle-password" data-target="studentPassword" aria-pressed="false" aria-controls="studentPassword">แสดงรหัสผ่าน</button>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="studentConfirmPassword">ยืนยันรหัสผ่าน</label>
                 <input type="password" id="studentConfirmPassword" name="studentConfirmPassword" placeholder="ยืนยันรหัสผ่านของคุณ" required>
+                <div class="toggle-password-container">
+                    <input type="checkbox" id="toggle_studentConfirmPassword" class="toggle-password-checkbox" data-target="studentConfirmPassword" aria-label="แสดงรหัสผ่าน" />
+                    <button type="button" class="toggle-password" data-target="studentConfirmPassword" aria-pressed="false" aria-controls="studentConfirmPassword">แสดงรหัสผ่าน</button>
+                </div>
             </div>
 
             <!-- <div class="remember-forgot">
@@ -41,12 +50,16 @@
                 </label>
             </div> -->
 
-            <button type="submit" class="login-btn" id="login-btn">สมัครบัญชี</button>
+            <button type="submit" class="login-btn" id="signup-btn">สมัครบัญชี</button>
 
         </form>
 
         <div class="signup-link">
             มีบัญชี MeIS? <a href="/login/" class="link">กดเพื่อเข้าสู่ระบบ</a>
         </div>
+
+    </div>
+
+    <script type="module" src="/scripts/login/signup.js"></script>
 </body>
 </html>

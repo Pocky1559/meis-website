@@ -1,4 +1,9 @@
 import { supabase } from "../supabase-cilent.js";
+import * as checkAuth from "./check-auth.js";
+
+const formError = document.getElementById('formError');
+if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
+checkAuth.checkIfUserAlreadyLoggedIn(formError);
 
 // Login function
 document.getElementById('studentForm').addEventListener('submit', async function(e) {
@@ -7,9 +12,6 @@ document.getElementById('studentForm').addEventListener('submit', async function
     const signInBtn = document.getElementById('login-btn');
     const originalBtnText = signInBtn.textContent;
     signInBtn.textContent = "กำลังเข้าสู่ระบบ..."
-    
-    const formError = document.getElementById('formError');
-    if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
     
     const studentEmail = document.getElementById('studentEmail').value;
     const password = document.getElementById('studentPassword').value;
@@ -33,7 +35,8 @@ document.getElementById('studentForm').addEventListener('submit', async function
         return;
        
     } else {
-        window.location.href = '/dashboard/';
+        await checkAuth.redirectToNextPage(data.user.id, formError);
+        signInBtn.textContent = originalBtnText;
     }
 });
 

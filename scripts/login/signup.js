@@ -1,4 +1,10 @@
 import { supabase } from "../supabase-cilent.js";
+import * as checkAuth from "./check-auth.js";
+
+const formError = document.getElementById('formError');
+if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
+
+await checkAuth.checkIfUserAlreadyLoggedIn(formError);
 
 // Login function
 document.getElementById('studentForm').addEventListener('submit', async function(e) {
@@ -6,9 +12,6 @@ document.getElementById('studentForm').addEventListener('submit', async function
     
     const signUpBtn = document.getElementById('signup-btn');
     const originalBtnText = signUpBtn.textContent;
-
-    const formError = document.getElementById('formError');
-    if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
     
     const studentEmail = document.getElementById('studentEmail').value;
     const password = document.getElementById('studentPassword').value;

@@ -3,7 +3,7 @@ import * as checkAuth from "./check-auth.js";
 
 const formError = document.getElementById('formError');
 if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
-checkAuth.checkIfUserAlreadyLoggedIn(formError);
+await checkAuth.checkIfUserAlreadyLoggedIn(formError);
 
 // Login function
 document.getElementById('studentForm').addEventListener('submit', async function(e) {

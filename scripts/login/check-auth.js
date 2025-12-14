@@ -5,7 +5,10 @@ export async function checkIfUserAlreadyLoggedIn(fieldToPutError) {
 
     if (user) {
         await redirectToNextPage(user.id, fieldToPutError);
-    } 
+    } else {
+        // use for the pages that need to redirect to other pages if not logged in
+        return false;
+    }
 }
 
 export async function redirectToNextPage(usedIdSession, fieldToPutError) {

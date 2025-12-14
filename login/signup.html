@@ -28,7 +28,8 @@
 
             <div class="form-group">
                 <label for="studentPassword">รหัสผ่าน</label>
-                <input type="password" id="studentPassword" name="studentPassword" placeholder="สร้างรหัสผ่านของคุณ" required>
+                <input type="password" id="studentPassword" name="studentPassword" placeholder="สร้างรหัสผ่านของคุณ" required
+                minlength="8">
                 <div class="toggle-password-container">
                     <input type="checkbox" id="toggle_studentPassword" class="toggle-password-checkbox" data-target="studentPassword" aria-label="แสดงรหัสผ่าน" />
                     <button type="button" class="toggle-password" data-target="studentPassword" aria-pressed="false" aria-controls="studentPassword">แสดงรหัสผ่าน</button>
@@ -37,7 +38,8 @@
 
             <div class="form-group">
                 <label for="studentConfirmPassword">ยืนยันรหัสผ่าน</label>
-                <input type="password" id="studentConfirmPassword" name="studentConfirmPassword" placeholder="ยืนยันรหัสผ่านของคุณ" required>
+                <input type="password" id="studentConfirmPassword" name="studentConfirmPassword" placeholder="ยืนยันรหัสผ่านของคุณ" required
+                minlength="8">
                 <div class="toggle-password-container">
                     <input type="checkbox" id="toggle_studentConfirmPassword" class="toggle-password-checkbox" data-target="studentConfirmPassword" aria-label="แสดงรหัสผ่าน" />
                     <button type="button" class="toggle-password" data-target="studentConfirmPassword" aria-pressed="false" aria-controls="studentConfirmPassword">แสดงรหัสผ่าน</button>

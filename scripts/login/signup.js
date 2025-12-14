@@ -27,11 +27,18 @@ document.getElementById('studentForm').addEventListener('submit', async function
         })
 
         if (error) {
-            formError.textContent = 'เกิดข้อผิดพลาด: ' + error.message;
+            if (error.message == "User already registered") {
+                formError.textContent = 'อีเมลนี้ถูกใช้งานแล้ว';
+            } 
+            else {
+                formError.textContent = 'เกิดข้อผิดพลาด: ' + error.message;
+            }
             formError.classList.add('visible');
             signUpBtn.textContent = originalBtnText;
             return;
-        } else {
+        } 
+        
+        else {
             window.location.href = '/login/setup-user.html';
         }
     }

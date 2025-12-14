@@ -202,6 +202,7 @@ input.toggle-password-checkbox {
 }
 
 .login-btn {
+    margin-top: 20px;
     width: 100%;
     padding: 12px;
     background: linear-gradient(135deg, #0359cd 0%, #da56ff 100%);

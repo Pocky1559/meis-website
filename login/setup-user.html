@@ -11,6 +11,51 @@
     <script src="/scripts/load-head.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="login-header">
+            <a href="/">
+                <img id="header-logo" src="/images/logo-horizontal.svg" alt="me-is-logo">
+            </a>
+            <p>กรุณากรอกข้อมูลส่วนตัว เพื่อตั้งค่าบัญชี</p>
+        </div>
+
+        <form id="studentForm">
+            <div id="formError" class="error-message" role="alert" aria-live="polite" aria-atomic="true"></div>
+            <div class="form-group">
+                <label for="studentId">รหัสประจำตัวนักเรียน</label>
+                <input type="text" id="studentId" name="studentId" placeholder="ใส่รหัสประจำตัวนักเรียนของคุณ" required
+                inputmode="numeric" maxlength="5" pattern="^[0-9]{5}$" title="ใส่ได้แค่เลขประจำตัวนักเรียนเท่านั้น">
+            </div>
+
+            <div class="form-group">
+                <label for="studentFirstName">ชื่อ</label>
+                <input type="text" id="studentFirstName" name="studentFirstName" placeholder="ใส่ชื่อของคุณ" required
+                pattern="^[\u0E00-\u0E7F]+$" title="ใส่ได้แค่ชื่อภาษาไทย และห้ามมีช่องว่าง">
+            </div>
+
+            <div class="form-group">
+                <label for="studentLastName">นามสกุล</label>
+                <input type="text" id="studentLastName" name="studentLastName" placeholder="ใส่นามสกุลของคุณ" required
+                pattern="^[\u0E00-\u0E7F]+$" title="ใส่ได้แค่นามสกุลภาษาไทย และห้ามมีช่องว่าง">
+            </div>
+
+            <div class="form-group">
+                <label for="studentClass">ชั้นเรียน</label>
+                <input type="text" id="studentClass" name="studentClass" placeholder="ใส่ชั้นเรียนของคุณ ตัวอย่าง: 5/8" required
+                inputmode="numeric" maxlength="4" pattern="^5/(?:[1-9]|1[0-4])$" title="ใส่ได้แค่ 5/1 ถึง 5/14">
+            </div>
+
+            <div class="form-group">
+                <label for="studentNumber">เลขที่</label>
+                <input type="text" id="studentNumber" name="studentNumber" placeholder="ใส่เลขที่ของคุณ" required
+                inputmode="numeric" maxlength="2" pattern="^(?:[0-9]|[1-4][0-9]|50)$" title="ใส่ได้ถึงเลขที่ 50 เท่านั้น"
+            </div>
+
+            <button type="submit" class="login-btn" id="save-btn">บันทึกข้อมูล</button>
+
+        </form>
+    </div>
+
+    <script type="module" src="/scripts/login/setup-user.js"></script>
 </body>
 </html>

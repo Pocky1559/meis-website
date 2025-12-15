@@ -1,28 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <script>
+        window.extensionName = "Dashboard";
+    </script>
+    <script src="/scripts/load-head.js"></script>
+    <title>แดชบอร์ด</title>
 </head>
 <body>
-    <a href="/">
-        go back to main page
-    </a>
+    <div class="container">
+        <div class="login-header">
+            <a href="/">
+                <img id="header-logo" src="/images/logo-horizontal.svg" alt="me-is-logo">
+            </a>
+            <p>จัดการบัญชีของคุณและเริ่มใช้งานฟีเจอร์จับคู่</p>
+        </div>
 
-    <button id="sign-out-button">Sign out</button>
+        <div class="dashboard-grid">
+            <aside class="left-panel">
+                <h2>ข้อมูลผู้ใช้</h2>
+                <div id="formError" class="error-message" role="alert" aria-live="polite" aria-atomic="true"></div>
 
-    <script type="module">
-        import { supabase } from "/scripts/supabase-cilent.js";
+                <div class="info-row"><span class="label">รหัสนักเรียน</span><span class="value" id="studentId">—</span></div>
+                <div class="info-row"><span class="label">ชื่อ</span><span class="value" id="studentFirstName">—</span></div>
+                <div class="info-row"><span class="label">นามสกุล</span><span class="value" id="studentLastName">—</span></div>
+                <div class="info-row"><span class="label">ชั้น</span><span class="value" id="studentClass">—</span></div>
+                <div class="info-row"><span class="label">เลขที่</span><span class="value" id="studentNumber">—</span></div>
 
-        document.getElementById("sign-out-button").addEventListener("click", async () => {
-            const { error } = await supabase.auth.signOut();
-            if (error) {
-                alert("Error signing out: " + error.message);
-            } else {
-                window.location.href = "/login/";
-            }
-        });
-    </script>
+                <div class="left-actions">
+                    <a class="link" href="/login/setup-user.html">แก้ไขข้อมูล (ไปยังหน้าตั้งค่า)</a>
+                    <a class="link" href="/">ไปยังฟีเจอร์จับคู่</a>
+                </div>
+            </aside>
+
+            <section class="right-panel">
+                <h2>ผลการจับคู่ของคุณ</h2>
+
+                <div class="matches-list">
+                    <!-- Example match cards. Populate dynamically later. -->
+                    <article class="match-card">
+                        <img class="match-avatar" src="/images/logo-horizontal.svg" alt="avatar">
+                        <div class="match-body">
+                            <div class="match-name">ตัวอย่าง ชื่อที่ 1</div>
+                            <div class="match-meta">ชั้น 3/4 • เลขที่ 12</div>
+                        </div>
+                    </article>
+
+                    <article class="match-card">
+                        <img class="match-avatar" src="/images/logo-horizontal.svg" alt="avatar">
+                        <div class="match-body">
+                            <div class="match-name">ตัวอย่าง ชื่อที่ 2</div>
+                            <div class="match-meta">ชั้น 2/1 • เลขที่ 3</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
 </body>
 </html>

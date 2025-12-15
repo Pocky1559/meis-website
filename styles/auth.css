@@ -1,0 +1,105 @@
+/* Authentication pages styles (login, signup, setup-user, teacher) */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Hide the old tab UI if present and style the teacher link */
+.login-tabs { display: none; }
+
+.teacher-link-underline {
+    text-decoration: underline #667eea;
+}
+
+.teacher-link-underline:hover { text-decoration: underline #764ba2; }
+
+.teacher-link { display: block; text-align: center; margin-top: 12px; }
+
+.password-wrapper { position: relative; }
+
+.toggle-password { display: inline-block; margin-top: 0; background: none; border: none; color: #667eea; font-weight: 600; font-size: 14px; cursor: pointer; border-radius: 4px; }
+.toggle-password:hover { color: #764ba2; }
+
+.toggle-password-container { display: flex; align-items: center; gap: 8px; margin-top: 7px; }
+
+input.toggle-password-checkbox { width: 15px; height: 15px; display: inline-block; cursor: pointer; padding: 0; margin: 0 8px 0 0; border: none; background: transparent; -webkit-appearance: checkbox; appearance: checkbox; }
+
+.remember-forgot { display: flex; justify-content: space-between; align-items: center; margin-left: 3px; margin-bottom: 10px; font-size: 14px; }
+
+.remember-forgot input[type="checkbox"] { margin-right: 5px; cursor: pointer; }
+
+.remember-forgot label { margin-bottom: 0; cursor: pointer; color: #666; font-weight: normal; }
+
+.signup-link { text-align: center; margin-top: 20px; color: #666; font-size: 14px; }
+.signup-link a { color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.signup-link a:hover { color: #764ba2; }
+
+/* Moved from main.css: form, inputs, buttons used in auth pages */
+.form-group { margin-bottom: 20px; }
+
+.error-message {
+    display: none;
+    color: #b00020;
+    background: #fff4f4;
+    border: 1px solid #f5c6cb;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.error-message.visible { display: block; }
+
+.form-group input {
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+}
+
+.login-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #0359cd 0%, #da56ff 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.login-btn:active { transform: translateY(0); }
+
+@media (max-width: 480px) {
+    .container { padding: 30px 20px; }
+    .login-header h1 { font-size: 24px; }
+}

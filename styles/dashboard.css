@@ -1,0 +1,121 @@
+/* Dashboard-specific styles — based on login-page look-and-feel */
+
+.container {
+    max-width: 1100px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.dashboard-grid {
+    display: flex;
+    gap: 18px;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    align-items: stretch;
+}
+
+/* Place the header at the top of the container and align its content */
+.login-header { display: flex; justify-content: center; align-items: center; gap: 12px; width: 100%; padding-bottom: 6px; flex-direction: column; }
+.login-header p { margin: 0; color: #555 }
+.login-header #header-logo { width: 50%; height: 100px; display: block }
+
+.left-panel {
+    flex: 0 0 35%;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.right-panel {
+    flex: 1 1 auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-panel h2,
+.right-panel h2 {
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0;
+    font-size: 15px;
+}
+
+.info-row .label { color: #666; }
+.info-row .value { color: #222; font-weight: 600; }
+
+.left-actions { margin-top: 18px; display:flex; flex-direction:column; gap:8px; }
+
+.matches-list { display:flex; flex-direction:column; gap:12px; align-items:stretch; }
+
+.match-card { display:flex; gap:12px; align-items:center; padding:12px; border-radius:8px; background:#fafafa; }
+.match-avatar { width:72px;height:72px;border-radius:50%;object-fit:cover;background:#eee;border:1px solid #eee }
+.match-body { display:flex; flex-direction:column; }
+.match-name { font-weight:700; color:#222 }
+.match-meta { color:#666; font-size:13px }
+
+/* Teacher card: center content in the right panel and use a larger avatar */
+.right-panel .teacher-list { flex: 1 1 auto; display:flex; align-items:center; justify-content:center; }
+.teacher-card { display:flex; flex-direction:column; align-items:center; gap:18px; padding:28px; border-radius:12px; background:#fafafa; max-width:none; width:100%; flex:1 1 auto; box-shadow:0 6px 18px rgba(0,0,0,0.04); justify-content:center }
+.teacher-avatar { display:block; width:160px; height:160px; max-width:none; border-radius:50%; object-fit:cover; background:#eee; border:1px solid #eee; margin-bottom:8px }
+.teacher-body { display:flex; flex-direction:column; align-items:center; }
+.teacher-name { font-weight:800; color:#222; text-align:center; font-size:30px }
+
+@media (max-width: 420px) {
+    .teacher-card { max-width: 90%; padding:18px }
+    .teacher-avatar { width:88px; height:88px }
+}
+
+/* Ensure dashboard fits most screens without page scroll; panels scroll internally if needed */
+html,body{height:100%;}
+body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+@media (max-width: 900px) {
+    .container { height: auto; max-width: 720px; padding: 14px; }
+    .dashboard-grid { flex-direction: column; }
+    .left-panel { flex: none; width: 100%; max-width: none; }
+    .right-panel { width: 100%; }
+}
+
+@media (max-width: 420px) {
+    .match-avatar { width:56px;height:56px }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 12px; width: calc(100% - 24px); }
+    .info-row { font-size: 14px; padding: 8px 0; }
+    .left-actions { gap:6px }
+    .teacher-card { padding: 16px; gap:12px }
+    .teacher-name { font-size: 20px }
+    .teacher-avatar { width:140px; height:140px; max-width: 60%; }
+}
+
+@media (max-width: 420px) {
+    .container { width: calc(100% - 20px); padding:10px }
+    .teacher-name { font-size: 18px }
+    .info-row { font-size: 13px }
+}

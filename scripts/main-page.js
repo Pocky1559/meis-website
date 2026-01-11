@@ -1,1 +1,1 @@
-import { supabase } from "/scripts/supabase-cilent.js";
+window.location.href = '/login/';

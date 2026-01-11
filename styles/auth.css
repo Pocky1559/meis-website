@@ -78,27 +78,6 @@ input.toggle-password-checkbox { width: 15px; height: 15px; display: inline-bloc
     box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
 }
 
-.login-btn {
-    margin-top: 20px;
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #0359cd 0%, #da56ff 100%);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.login-btn:active { transform: translateY(0); }
-
 @media (max-width: 480px) {
     .container { padding: 30px 20px; }
     .login-header h1 { font-size: 24px; }

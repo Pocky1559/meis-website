@@ -13,12 +13,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="login-header">
+        <!-- <div class="login-header">
             <a href="/">
                 <img id="header-logo" src="/images/logo-horizontal.svg" alt="me-is-logo">
             </a>
             <p>จัดการบัญชีของคุณและเริ่มใช้งานฟีเจอร์จับคู่</p>
-        </div>
+        </div> -->
 
         <div class="dashboard-grid">
             <aside class="left-panel">
@@ -32,37 +32,32 @@
                 <div class="info-row"><span class="label">เลขที่</span><span class="value" id="studentNumber">—</span></div>
 
                 <div class="left-actions">
-                    <a class="link" href="/login/setup-user.html">แก้ไขข้อมูล (ไปยังหน้าตั้งค่า)</a>
-                    <a class="link" href="/">ไปยังฟีเจอร์จับคู่</a>
+                    <a class="link" href="/login/setup-user.html">
+                        <button class="btn">แก้ไขข้อมูล (ไปยังหน้าตั้งค่า)</button>
+                    </a>
+                    <a class="link" href="/">
+                        <button class="btn">ไปยังฟีเจอร์จับคู่</button>
+                    </a>
+                    <button class="btn" id="logout-btn">ออกจากระบบ</button>
                 </div>
             </aside>
 
             <section class="right-panel">
-                <h2>ผลการจับคู่ของคุณ</h2>
+                <h2>ครูที่จับคู่ได้</h2>
 
-                <div class="matches-list">
-                    <!-- Example match cards. Populate dynamically later. -->
-                    <article class="match-card">
-                        <img class="match-avatar" src="/images/logo-horizontal.svg" alt="avatar">
-                        <div class="match-body">
-                            <div class="match-name">ตัวอย่าง ชื่อที่ 1</div>
-                            <div class="match-meta">ชั้น 3/4 • เลขที่ 12</div>
-                        </div>
-                    </article>
-
-                    <article class="match-card">
-                        <img class="match-avatar" src="/images/logo-horizontal.svg" alt="avatar">
-                        <div class="match-body">
-                            <div class="match-name">ตัวอย่าง ชื่อที่ 2</div>
-                            <div class="match-meta">ชั้น 2/1 • เลขที่ 3</div>
-                        </div>
-                    </article>
+                <!-- Teacher card replaces teacher-list and fills the panel -->
+                <div class="teacher-card">
+                    <img class="teacher-avatar" src="/images/logo-horizontal.svg" alt="teacher avatar">
+                    <div class="teacher-body">
+                        <div class="teacher-name">กรุณากดจับคู่ เพื่อจับคู</div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
 
-</body>
-</html>
+    </div>
+
+    <script type="module" src="/scripts/dashboard.js"></script>
 </body>
 </html>

@@ -9,12 +9,15 @@ const studentFirstName = document.getElementById('studentFirstName');
 const studentLastName = document.getElementById('studentLastName');
 const studentClass = document.getElementById('studentClass');
 const studentNumber = document.getElementById('studentNumber');
+const projectName = document.getElementById('projectName');
 const teacherAvatar = document.getElementById('teacher-avatar');
 const teacherName = document.getElementById('teacher-name');
 
 init();
 
 document.getElementById('logout-btn').addEventListener('click', async function() {
+    const confirmed = confirm('คุณแน่ใจว่าต้องการออกจากระบบหรือไม่?');
+    if (!confirmed) return;
     await supabase.auth.signOut();
     window.location.href = '/login/';
 });
@@ -25,6 +28,7 @@ async function init() {
     studentLastName.textContent = 'กำลังโหลดข้อมูล...';
     studentClass.textContent = 'กำลังโหลดข้อมูล...';
     studentNumber.textContent = 'กำลังโหลดข้อมูล...';
+    projectName.textContent = 'กำลังโหลดข้อมูล...';
     teacherName.textContent = 'กำลังโหลดข้อมูล...';
     
     // Load user data
@@ -48,6 +52,7 @@ async function init() {
         studentLastName.textContent = 'เกิดข้อผิดพลาด';
         studentClass.textContent = 'เกิดข้อผิดพลาด';
         studentNumber.textContent = 'เกิดข้อผิดพลาด';
+        projectName.textContent = 'เกิดข้อผิดพลาด';
         teacherName.textContent = 'เกิดข้อผิดพลาด';
         return;
     }
@@ -58,6 +63,12 @@ async function init() {
     studentClass.textContent = data[0].class;
     studentNumber.textContent = data[0].number;
 
+    if (data[0].project_name === null) {
+        projectName.textContent = 'ยังไม่ได้ตั้งชื่อ';
+    } else {
+        projectName.textContent = data[0].project_name;
+    }
+    
     if (data[0].is_match === false) {
         teacherName.textContent = 'กรุณากดจับคู่ เพื่อจับคู่คุณครู';
     } else {

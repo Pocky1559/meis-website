@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+    <script>
+        window.extensionName = "Matching Teacher";
+    </script>
+    <script src="/scripts/load-head.js"></script>
+    <title>จับคู่คุณครู</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-header">
+            <a href="/">
+                <img id="header-logo" src="/images/logo-horizontal.svg" alt="me-is-logo">
+            </a>
+            <p>โปรดใส่ข้อมูลเพื่อจับคู่คุณครู</p>
+        </div>
+
+        <form id="studentForm">
+            <div id="formError" class="error-message" role="alert" aria-live="polite" aria-atomic="true"></div>
+            <div class="form-group">
+                <label for="topic">หัวข้อหลัก</label>
+                <select id="topic" name="topic" required>
+                    <option value="">-- เลือกหัวข้อที่เกี่ยวกับโปรเจกต์ของคุณ --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>หัวข้อย่อย (เลือก 1–3)</label>
+                <div id="subtopics" class="checkbox-group" aria-live="polite"></div>
+                <p class="hint">เลือกหัวข้อย่อยอย่างน้อย 1 และไม่เกิน 3 ข้อ</p>
+            </div>
+
+            <div class="form-group">
+                <label for="projectName">ชื่อโปรเจกต์</label>
+                <input type="text" id="projectName" name="projectName" placeholder="ใส่ชื่อโปรเจกต์ของคุณ" required>
+            </div>
+
+            <button type="submit" class="btn" id="finish-btn">เสร็จสิ้น</button>
+
+        </form>
+    </div>
+    <script type="module" src="/scripts/match.js"></script>
+</body>
+</html>

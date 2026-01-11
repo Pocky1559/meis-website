@@ -64,5 +64,18 @@ body {
 
 .btn:active { transform: translateY(0); }
 
+.error-message {
+    display: none;
+    color: #b00020;
+    background: #fff4f4;
+    border: 1px solid #f5c6cb;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.error-message.visible { display: block; }
+
 /* form and auth-specific rules moved to /styles/auth.css */
 

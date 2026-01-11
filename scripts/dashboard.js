@@ -1,68 +1,66 @@
+import { supabase } from "./supabase-cilent.js";
+import * as checkAuth from "./login/check-auth.js";
+
 const formError = document.getElementById('formError');
 if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
 
-// Placeholder user; replace with real auth logic (e.g. Supabase) later
-const user = window.__CURRENT_USER || { id: 'local-placeholder' };
+const studentId = document.getElementById('studentId');
+const studentFirstName = document.getElementById('studentFirstName');
+const studentLastName = document.getElementById('studentLastName');
+const studentClass = document.getElementById('studentClass');
+const studentNumber = document.getElementById('studentNumber');
+const teacherAvatar = document.getElementById('teacher-avatar');
+const teacherName = document.getElementById('teacher-name');
 
-async function loadUserInfo() {
-    const raw = localStorage.getItem(`user_info_${user.id}`);
-    if (!raw) {
+init();
+
+document.getElementById('logout-btn').addEventListener('click', async function() {
+    await supabase.auth.signOut();
+    window.location.href = '/login/';
+});
+
+async function init() {
+    studentId.textContent = 'กำลังโหลดข้อมูล...';
+    studentFirstName.textContent = 'กำลังโหลดข้อมูล...';
+    studentLastName.textContent = 'กำลังโหลดข้อมูล...';
+    studentClass.textContent = 'กำลังโหลดข้อมูล...';
+    studentNumber.textContent = 'กำลังโหลดข้อมูล...';
+    teacherName.textContent = 'กำลังโหลดข้อมูล...';
+    
+    // Load user data
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+        window.location.href = '/login/';
         return;
     }
 
-    let data;
-    try { data = JSON.parse(raw); } catch (e) { return; }
+    const { data, error } = await supabase
+        .from('user_info')
+        .select('*')
 
-    const el = id => document.getElementById(id);
-    if (el('studentId')) el('studentId').value = data.student_id ?? '';
-    if (el('studentFirstName')) el('studentFirstName').value = data.first_name ?? '';
-    if (el('studentLastName')) el('studentLastName').value = data.last_name ?? '';
-    if (el('studentClass')) el('studentClass').value = data.class ?? '';
-    if (el('studentNumber')) el('studentNumber').value = data.number ?? '';
-}
+    
+    if (error) {
+        formError.textContent = 'เกิดข้อผิดพลาด โปรดติดต่อแอดมิน: ' + error.message;
+        formError.classList.add('visible');
+        studentId.textContent = 'เกิดข้อผิดพลาด';
+        studentFirstName.textContent = 'เกิดข้อผิดพลาด';
+        studentLastName.textContent = 'เกิดข้อผิดพลาด';
+        studentClass.textContent = 'เกิดข้อผิดพลาด';
+        studentNumber.textContent = 'เกิดข้อผิดพลาด';
+        teacherName.textContent = 'เกิดข้อผิดพลาด';
+        return;
+    }
 
-await loadUserInfo();
+    studentId.textContent = data[0].student_id;
+    studentFirstName.textContent = data[0].first_name;
+    studentLastName.textContent = data[0].last_name;
+    studentClass.textContent = data[0].class;
+    studentNumber.textContent = data[0].number;
 
-const accountForm = document.getElementById('accountForm');
-if (accountForm) {
-    accountForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const updateBtn = document.getElementById('update-btn');
-        const originalText = updateBtn ? updateBtn.textContent : '';
-        if (updateBtn) updateBtn.textContent = 'กำลังบันทึก...';
-
-        const payload = {
-            student_id: document.getElementById('studentId')?.value ?? '',
-            first_name: document.getElementById('studentFirstName')?.value ?? '',
-            last_name: document.getElementById('studentLastName')?.value ?? '',
-            class: document.getElementById('studentClass')?.value ?? '',
-            number: document.getElementById('studentNumber')?.value ?? ''
-        };
-
-        try {
-            localStorage.setItem(`user_info_${user.id}`, JSON.stringify(payload));
-        } catch (err) {
-            if (formError) { formError.textContent = 'เกิดข้อผิดพลาด: ' + err.message; formError.classList.add('visible'); }
-            if (updateBtn) updateBtn.textContent = originalText;
-            return;
-        }
-
-        if (updateBtn) updateBtn.textContent = 'บันทึกแล้ว';
-        setTimeout(() => { if (updateBtn) updateBtn.textContent = originalText; }, 1500);
-    });
-}
-
-const signOutBtn = document.getElementById('sign-out-button');
-if (signOutBtn) {
-    signOutBtn.addEventListener('click', () => {
-        try { delete window.__CURRENT_USER; } catch (e) {}
-        window.location.href = '/login/';
-    });
-}
-
-const useMatching = document.getElementById('use-matching');
-if (useMatching) {
-    useMatching.addEventListener('click', () => {
-        window.location.href = '/';
-    });
+    if (data[0].is_match === false) {
+        teacherName.textContent = 'กรุณากดจับคู่ เพื่อจับคู่คุณครู';
+    } else {
+        teacherName.textContent = data[0].matched_teacher;
+    }
 }

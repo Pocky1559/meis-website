@@ -22,7 +22,7 @@
 
         <div class="dashboard-grid">
             <aside class="left-panel">
-                <h2>ข้อมูลผู้ใช้</h2>
+                <h2>ข้อมูลนักเรียน</h2>
                 <div id="formError" class="error-message" role="alert" aria-live="polite" aria-atomic="true"></div>
 
                 <div class="info-row"><span class="label">รหัสนักเรียน</span><span class="value" id="studentId">—</span></div>
@@ -32,9 +32,9 @@
                 <div class="info-row"><span class="label">เลขที่</span><span class="value" id="studentNumber">—</span></div>
 
                 <div class="left-actions">
-                    <a class="link" href="/login/setup-user.html">
+                    <!-- <a class="link" href="/login/setup-user.html">
                         <button class="btn">แก้ไขข้อมูล (ไปยังหน้าตั้งค่า)</button>
-                    </a>
+                    </a> -->
                     <a class="link" href="/">
                         <button class="btn">ไปยังฟีเจอร์จับคู่</button>
                     </a>
@@ -47,9 +47,9 @@
 
                 <!-- Teacher card replaces teacher-list and fills the panel -->
                 <div class="teacher-card">
-                    <img class="teacher-avatar" src="/images/logo-horizontal.svg" alt="teacher avatar">
+                    <img class="teacher-avatar" src="/images/logo-horizontal.svg" alt="teacher avatar" id="teacher-avatar">
                     <div class="teacher-body">
-                        <div class="teacher-name">กรุณากดจับคู่ เพื่อจับคู</div>
+                        <div class="teacher-name" id="teacher-name">กรุณากดจับคู่ เพื่อจับคู่คุณครู</div>
                     </div>
                 </div>
             </section>

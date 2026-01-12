@@ -1,3 +1,5 @@
+import { supabase } from "./supabase-cilent.js";
+
 const formError = document.getElementById('formError');
 if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
 
@@ -79,6 +81,54 @@ function enforceSubtopicLimit() {
   }
 }
 
+function matchTeachers(teachers, subject, segments) {
+  const results = [];
+
+  const hasMatch = (teacherSegments = []) =>
+    teacherSegments.some(s => segments.includes(s));
+
+  // Main interest first
+  for (const t of teachers) {
+    const main = t.main_interest;
+    if (
+      main?.subject === subject &&
+      hasMatch(main.segments)
+    ) {
+      results.push({ ...t, match_type: "main" });
+    }
+  }
+
+  // Sub interest
+  for (const t of teachers) {
+    if (results.some(r => r.id === t.id)) continue;
+
+    const subs = Array.isArray(t.sub_interest) ? t.sub_interest : [];
+    for (const sub of subs) {
+      if (
+        sub.subject === subject &&
+        hasMatch(sub.segments)
+      ) {
+        results.push({ ...t, match_type: "sub" });
+        break;
+      }
+    }
+  }
+
+  return results;
+}
+
+async function requestTeacherData() {
+  const { data, error } = await supabase
+    .from('teacher-info')
+    .select("id, name, main_interest, sub_interest");
+
+  if (error) {
+    throw new Error('Error fetching teacher data: ' + error.message);
+  }
+
+  return data;
+}
+
 // form submit handler
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -99,7 +149,7 @@ form.addEventListener('submit', async function(e) {
     return;
   }
 
-  const submitBtn = document.getElementById('login-btn');
+  const submitBtn = document.getElementById('submit-btn');
   const originalText = submitBtn.textContent;
   submitBtn.textContent = 'กำลังบันทึก...';
 
@@ -111,9 +161,19 @@ form.addEventListener('submit', async function(e) {
       sub_topics: selectedSub,
       savedAt: new Date().toISOString()
     };
-    localStorage.setItem('match_selection', JSON.stringify(payload));
+    console.log('User answers:', payload);
+
+    const subject = payload.topic;
+    const segments = payload.sub_topics;
+    
+    const teacherData = await requestTeacherData();
+
+    const matchedTeachers = matchTeachers(teacherData, subject, segments);
+
+    console.log('Matched Teachers:', matchedTeachers);
+
     // success
-    window.location.href = '/dashboard/';
+    // window.location.href = '/dashboard/';
   } catch (err) {
     formError.textContent = 'เกิดข้อผิดพลาดในการบันทึก โปรดลองใหม่: ' + err.message;
     formError.classList.add('visible');

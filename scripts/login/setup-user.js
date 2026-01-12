@@ -4,8 +4,8 @@ import * as checkAuth from './check-auth.js';
 const formError = document.getElementById('formError');
 if (formError) { formError.textContent = ''; formError.classList.remove('visible'); }
 
-const userLoggedIn = await checkAuth.checkIfUserAlreadyLoggedIn(formError);
-if (!userLoggedIn) { window.location.href = '/'; }
+// const userLoggedIn = await checkAuth.checkIfUserAlreadyLoggedIn(formError);
+// if (!userLoggedIn) { window.location.href = '/'; }
 
 document.getElementById('studentForm').addEventListener('submit', async function(e) {
     e.preventDefault();

@@ -174,8 +174,10 @@ form.addEventListener('submit', async function(e) {
 
     console.log('Matched Teachers:', matchedTeachers);
 
+    localStorage.setItem("matched-teachers", JSON.stringify(matchedTeachers));
+
     // success
-    // window.location.href = '/dashboard/';
+    window.location.href = '/dashboard/choose-teacher.html';
   } catch (err) {
     formError.textContent = 'เกิดข้อผิดพลาดในการบันทึก โปรดลองใหม่: ' + err.message;
     formError.classList.add('visible');

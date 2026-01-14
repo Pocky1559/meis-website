@@ -162,6 +162,10 @@ body { display: flex; align-items: center; justify-content: center; min-height: 
     transform: translateY(-2px);
 }
 
+.hide-teacher-card {
+    display: none;
+}
+
 .teacher-card-avatar {
     width: 120px;
     height: 120px;

@@ -21,37 +21,37 @@
         </div>
 
         <div class="teachers-container">
-            <h2>คุณครูที่</h2>
+            <h2 id="header-text">คุณครูที่จับคู่ได้</h2>
             <div class="teachers-grid">
                 <!-- Teacher Card 1 -->
-                <div class="teacher-card-item" data-teacher-id="teacher-1">
+                <div class="teacher-card-item hide-teacher-card" id="teacher-1" data-teacher-id="teacher-1">
                     <img src="/images/avatar-placeholder.svg" alt="Teacher avatar" class="teacher-card-avatar">
                     <div class="teacher-card-body">
-                        <h3 class="teacher-card-name">อาจารย์สมชาย ใจดี</h3>
+                        <h3 class="teacher-card-name" id="teacher-name-1"></h3>
                     </div>
                     <button class="btn btn-primary" id="btn-teacher-1" data-teacher-id="teacher-1">เลือก</button>
                 </div>
 
                 <!-- Teacher Card 2 -->
-                <div class="teacher-card-item" data-teacher-id="teacher-2">
+                <div class="teacher-card-item hide-teacher-card" id="teacher-2" data-teacher-id="teacher-2">
                     <img src="/images/avatar-placeholder.svg" alt="Teacher avatar" class="teacher-card-avatar">
                     <div class="teacher-card-body">
-                        <h3 class="teacher-card-name">อาจารย์วิจิตรา นวลใจ</h3>
+                        <h3 class="teacher-card-name" id="teacher-name-2"></h3>
                     </div>
                     <button class="btn btn-primary" id="btn-teacher-2" data-teacher-id="teacher-2">เลือก</button>
                 </div>
 
                 <!-- Teacher Card 3 -->
-                <div class="teacher-card-item" data-teacher-id="teacher-3">
+                <div class="teacher-card-item hide-teacher-card" id="teacher-3" data-teacher-id="teacher-3">
                     <img src="/images/avatar-placeholder.svg" alt="Teacher avatar" class="teacher-card-avatar">
                     <div class="teacher-card-body">
-                        <h3 class="teacher-card-name">อาจารย์นิเวช สุขสวัสดิ์</h3>
+                        <h3 class="teacher-card-name" id="teacher-name-3"></h3>
                     </div>
                     <button class="btn btn-primary" id="btn-teacher-3" data-teacher-id="teacher-3">เลือก</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <script type="module" src="/scripts/choose-teacher.js"></script> -->
+    <script type="module" src="/scripts/choose-teacher.js"></script>
 </body>
 </html>

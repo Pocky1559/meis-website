@@ -119,3 +119,138 @@ body { display: flex; align-items: center; justify-content: center; min-height: 
     .teacher-name { font-size: 18px }
     .info-row { font-size: 13px }
 }
+
+/* Choose Teacher Page Styles */
+.teachers-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.teachers-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+}
+
+.teacher-card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+.teacher-card-item:hover {
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.teacher-card-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #eee;
+    border: 3px solid #ddd;
+}
+
+.teacher-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.teacher-card-name {
+    font-weight: 800;
+    color: #222;
+    margin: 0;
+    font-size: 18px;
+}
+
+.teacher-card-subject {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.teacher-card-experience {
+    color: #999;
+    font-size: 13px;
+    margin: 0;
+}
+
+.btn-primary {
+    margin-top: 12px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .teachers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-card-item {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .teacher-card-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .teacher-card-name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .teachers-container h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .teachers-grid {
+        gap: 16px;
+    }
+
+    .teacher-card-item {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .teacher-card-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .teacher-card-name {
+        font-size: 15px;
+    }
+
+    .teacher-card-subject {
+        font-size: 13px;
+    }
+
+    .teacher-card-experience {
+        font-size: 12px;
+    }
+}

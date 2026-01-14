@@ -123,7 +123,9 @@ async function requestTeacherData() {
     .select("id, name, main_interest, sub_interest");
 
   if (error) {
-    throw new Error('Error fetching teacher data: ' + error.message);
+    formError.textContent = 'ไม่สามารถดึงข้อมูลครูได้: ' + error.message;
+    formError.classList.add('visible');
+    throw new Error(error.message);
   }
 
   return data;

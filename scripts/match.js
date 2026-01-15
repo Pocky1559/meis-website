@@ -176,6 +176,8 @@ form.addEventListener('submit', async function(e) {
 
     localStorage.setItem("matched-teachers", JSON.stringify(matchedTeachers));
 
+    localStorage.setItem("project-naeme", projectName);
+
     // success
     window.location.href = '/dashboard/choose-teacher.html';
   } catch (err) {

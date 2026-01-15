@@ -5,3 +5,6 @@ const { data, error } = await supabase
     .select();
 
 console.log(data, error);
+
+const { data: {user} } = await supabase.auth.getUser();
+console.log("Current user:", user);
